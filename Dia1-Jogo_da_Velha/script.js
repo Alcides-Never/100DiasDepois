@@ -1,3 +1,7 @@
+// Criado as variáveeis a serem usadas nas funções. 
+// Setado, primeiro player X, movimento inicial igual a zero e gameOver para falso.
+// Setado span, vinculado a tag span no HTML
+
 var playerTurn, moves, isGameOver, span, restartButton;
 playerTurn = "x";
 moves = 0;
@@ -13,9 +17,11 @@ function play(y){
         if(playerTurn == "x"){
             playerTurn = "o";
         } else if(playerTurn == "o"){
-            playerTurn == "x";
+            playerTurn = "x";
         }
     }
+
+    //Condições de Vitoria
 
     checkWinner(1, 2, 3);
     checkWinner(4, 5, 6);
@@ -26,6 +32,8 @@ function play(y){
     checkWinner(1, 5, 9);
     checkWinner(3, 5, 7);
 
+    // Empate
+
     if(moves == 9 && isGameOver == false) {draw();}
 
 }
@@ -34,7 +42,7 @@ function checkWinner(a, b, c){
     a--;
     b--;
     c--;
-    if((span[a].dataset.player === span[b].dataset.player) && (span[b].dataset.player === spacn[c].dataset.player) && (span[a].dataset.player === "x" || span[a].dataset.player === "o") && isGameOver == false) {
+    if((span[a].dataset.player === span[b].dataset.player) && (span[b].dataset.player === span[c].dataset.player) && (span[a].dataset.player === "x" || span[a].dataset.player === "o") && isGameOver == false) {
         span[a].parentNode.className += " activeBox";
         span[b].parentNode.className += " activeBox";
         span[c].parentNode.className += " activeBox";
@@ -47,20 +55,20 @@ function playAgain(){
     resetGame();
     window.isGameOver = false;
     for(var k = 0; k < span.length; k++){
-        span[k].parentNodeclassName = span[k].parentNode.className.replace("activeBox", "");
+        span[k].parentNode.className = span[k].parentNode.className.replace("activeBox", "");
     }
 }
 
 function resetGame(){
     for(i = 0; i < span.length; i++){
         span[i].dataset.player = "none";
-        span[i].innnerHTNL = "&nbsp";
+        span[i].innerHTML = "&nbsp;";
     }
     playerTurn = "x";
 }
 
 function gameOver(a){
-    var gameOverAlertElement = "<b>GAME OVER </b><br><br> Player " + span[a].dataset.player.toUpperCase() + " Win !!! <br><br>" + restartButton;
+    var gameOverAlertElement = "<b>GAME OVER </b><br><br> Jogador " + span[a].dataset.player.toUpperCase() + " venceu !!! <br><br>" + restartButton;
     var div = document.createElement("div");
     div.className = "alert";
     div.innerHTML = gameOverAlertElement;

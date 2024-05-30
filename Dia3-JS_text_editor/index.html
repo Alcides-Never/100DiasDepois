@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>#3 - Online Text Editor</title>
 </head>
 <body>
@@ -56,7 +57,27 @@
             <button id="outdent" class="option-button spacing">
                 <i class="fa-solid fa-outdent"></i>
             </button>
+            <select id="formatBlock" class="adv-options-button">
+                <option value="H1">H1</option>
+                <option value="H2">H2</option>
+                <option value="H3">H3</option>
+                <option value="H4">H4</option>
+                <option value="H5">H5</option>
+                <option value="H6">H6</option>
+            </select>
+            <select id="fontName" class="adv-option-button"></select>
+            <select id="fontSize" class="adv-option-button"></select>
+
+            <div class="input-wrapper">
+                <input type="color" id="foreColor" class="adv-option-button">
+                <label for="foreColor">Font Color</label>
+            </div>
+            <div class="input-wrapper">
+                <input type="color" id="backColor" class="adv-option-button">
+                <label for="backColor">Highlight Color</label>
+            </div>
         </div>
+        <div id="text-input" contenteditable="true"></div>
     </div>
 </body>
 </html>
